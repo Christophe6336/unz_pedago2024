@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Majestic Admin</title>
+    <!-- plugins:css -->
+    <link
+      rel="stylesheet"
+      href="../../vendors/mdi/css/materialdesignicons.min.css"
+    />
+    <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css" />
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/style.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+  </head>
+
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+          <div
+            class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100"
+          >
+            <a class="navbar-brand brand-logo" href="../../index.html"
+              ><img src="../../images/logo.svg" alt="logo"
+            /></a>
+            <a class="navbar-brand brand-logo-mini" href="../../index.html"
+              ><img src="../../images/logo-mini.svg" alt="logo"
+            /></a>
+            <button
+              class="navbar-toggler navbar-toggler align-self-center"
+              type="button"
+              data-toggle="minimize"
+            >
+              <span class="mdi mdi-sort-variant"></span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+        >
+          <ul class="navbar-nav mr-lg-4 w-100">
+            <li class="nav-item nav-search d-none d-lg-block w-100">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="search">
+                    <i class="mdi mdi-magnify"></i>
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search now"
+                  aria-label="search"
+                  aria-describedby="search"
+                />
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item dropdown me-1">
+              <a
+                class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
+                id="messageDropdown"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <i class="mdi mdi-message-text mx-0"></i>
+                <span class="count"></span>
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                aria-labelledby="messageDropdown"
+              >
+                <p class="mb-0 font-weight-normal float-left dropdown-header">
+                  Messages
+                </p>
+                <a class="dropdown-item">
+                  <div class="item-thumbnail">
+                    <img
+                      src="../../images/faces/face4.jpg"
+                      alt="image"
+                      class="profile-pic"
+                    />
+                  </div>
+                  <div class="item-content flex-grow">
+                    <h6 class="ellipsis font-weight-normal">David Grey</h6>
+                    <p class="font-weight-light small-text text-muted mb-0">
+                      The meeting is cancelled
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item">
+                  <div class="item-thumbnail">
+                    <img
+                      src="../../images/faces/face2.jpg"
+                      alt="image"
+                      class="profile-pic"
+                    />
+                  </div>
+                  <div class="item-content flex-grow">
+                    <h6 class="ellipsis font-weight-normal">Tim Cook</h6>
+                    <p class="font-weight-light small-text text-muted mb-0">
+                      New product launch
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item">
+                  <div class="item-thumbnail">
+                    <img
+                      src="../../images/faces/face3.jpg"
+                      alt="image"
+                      class="profile-pic"
+                    />
+                  </div>
+                  <div class="item-content flex-grow">
+                    <h6 class="ellipsis font-weight-normal">Johnson</h6>
+                    <p class="font-weight-light small-text text-muted mb-0">
+                      Upcoming board meeting
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="nav-item dropdown me-4">
+              <a
+                class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown"
+                id="notificationDropdown"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <i class="mdi mdi-bell mx-0"></i>
+                <span class="count"></span>
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                aria-labelledby="notificationDropdown"
+              >
+                <p class="mb-0 font-weight-normal float-left dropdown-header">
+                  Notifications
+                </p>
+                <a class="dropdown-item">
+                  <div class="item-thumbnail">
+                    <div class="item-icon bg-success">
+                      <i class="mdi mdi-information mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="item-content">
+                    <h6 class="font-weight-normal">Application Error</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      Just now
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item">
+                  <div class="item-thumbnail">
+                    <div class="item-icon bg-warning">
+                      <i class="mdi mdi-settings mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="item-content">
+                    <h6 class="font-weight-normal">Settings</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      Private message
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item">
+                  <div class="item-thumbnail">
+                    <div class="item-icon bg-info">
+                      <i class="mdi mdi-account-box mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="item-content">
+                    <h6 class="font-weight-normal">New user registration</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      2 days ago
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="nav-item nav-profile dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                id="profileDropdown"
+              >
+                <img src="../../images/faces/face5.jpg" alt="profile" />
+                <span class="nav-profile-name">Louis Barnett</span>
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                aria-labelledby="profileDropdown"
+              >
+                <a class="dropdown-item">
+                  <i class="mdi mdi-settings text-primary"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item">
+                  <i class="mdi mdi-logout text-primary"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+          <button
+            class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+            type="button"
+            data-toggle="offcanvas"
+          >
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="../../index.html">
+                <i class="mdi mdi-home menu-icon"></i>
+                <span class="menu-title">Tableau de bord</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../../pages/evenement/evenement.html">
+                <i class="mdi mdi-application menu-icon"></i>
+                <span class="menu-title">Evènements</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="../../pages/utilisateurs/utilisateurs.html"
+              >
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+                <span class="menu-title">Utilisateurs</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../../pages/categorie/categories.html">
+                <i class="mdi mdi-equal-box menu-icon"></i>
+                <span class="menu-title">Catgories</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../../pages/profil/profil.html">
+                <i class="mdi mdi-account-box-outline menu-icon"></i>
+                <span class="menu-title">Profil</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+
+        <!-- la partie de bienvenue -->
+
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <!-- <div class="message bg-success" th:if="${success !=null}">
+              <h3 style="color: #fff; text-align: center; padding: 12px">
+                [[${success}]]
+              </h3>
+            </div>
+            -->
+
+            <div class="row">
+              <div class="col-md-12 grid-margin">
+                <div class="d-flex justify-content-between flex-wrap">
+                  <div class="d-flex align-items-end flex-wrap">
+                    <div class="me-md-3 me-xl-5">
+                      <h2>Mon profil</h2>
+                    </div>
+                    <div class="d-flex">
+                      <i class="mdi mdi-home text-muted hover-cursor"></i>
+                      <p class="text-muted mb-0 hover-cursor">
+                        &nbsp;/&nbsp;-&nbsp;
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--########################################### Mon profil ############################################ -->
+
+            <div class="main-content">
+              <div class="page-content">
+                <div class="container-fluid">
+                  <div class="profile-foreground position-relative mx-n4 mt-n4">
+                    <div class="profile-wid-bg">
+                      <img
+                        src="assets/images/profile-bg.jpg"
+                        alt=""
+                        class="profile-wid-img"
+                      />
+                    </div>
+                  </div>
+                  <div class="pt-4 mb-4 mb-lg-3 pb-lg-4">
+                    <div class="row g-4">
+                      <!--end col-->
+                      <div class="col">
+                        <div class="p-2">
+                          <h2 class="text-dark mb-1">SABIDANI YENTEM ELISEE</h2>
+                        </div>
+                      </div>
+                      <!--end col-->
+
+                      <!--end col-->
+                    </div>
+                    <!--end row-->
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div>
+                        <div class="d-flex">
+                          <!-- Nav tabs -->
+                          <ul
+                            class="nav nav-pills animation-nav profile-nav gap-2 gap-lg-3 flex-grow-1"
+                            role="tablist"
+                          >
+                            <li class="nav-item">
+                              <a
+                                class="nav-link fs-14 active"
+                                data-bs-toggle="tab"
+                                href="#overview-tab"
+                                role="tab"
+                              >
+                                <i
+                                  class="ri-airplay-fill d-inline-block d-md-none"
+                                ></i>
+                                <span class="d-none d-md-inline-block"
+                                  >Mes informations</span
+                                >
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a
+                                class="nav-link fs-14"
+                                data-bs-toggle="tab"
+                                href="#activities"
+                                role="tab"
+                              >
+                                <i
+                                  class="ri-list-unordered d-inline-block d-md-none"
+                                ></i>
+                                <span class="d-none d-md-inline-block"
+                                  >Les évenements</span
+                                >
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a
+                                class="nav-link fs-14"
+                                data-bs-toggle="tab"
+                                href="#projects"
+                                role="tab"
+                              >
+                                <i
+                                  class="ri-price-tag-line d-inline-block d-md-none"
+                                ></i>
+                                <span class="d-none d-md-inline-block"
+                                  >Mes favoris</span
+                                >
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a
+                                class="nav-link fs-14"
+                                data-bs-toggle="tab"
+                                href="#documents"
+                                role="tab"
+                              >
+                                <i
+                                  class="ri-folder-4-line d-inline-block d-md-none"
+                                ></i>
+                                <span class="d-none d-md-inline-block"
+                                  >Paramètre du compte</span
+                                >
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- Tab panes -->
+                        <div class="tab-content pt-4 text-muted">
+                          <div
+                            class="tab-pane active"
+                            id="overview-tab"
+                            role="tabpanel"
+                          >
+                            <div class="row">
+                              <div class="col-xxl-3">
+                                <div class="card">
+                                  <div class="card-body">
+                                    <div class="table-responsive">
+                                      <table
+                                        class="table table-borderless mb-0"
+                                      >
+                                        <tbody>
+                                          <tr>
+                                            <th class="ps-0" scope="row">
+                                              Nom prénom :
+                                            </th>
+                                            <td class="text-muted">
+                                              SABIDANI YENTEM ELISEE
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <th class="ps-0" scope="row">
+                                              Mobile :
+                                            </th>
+                                            <td class="text-muted">
+                                              +(226) 56 77 98 22
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <th class="ps-0" scope="row">
+                                              E-mail :
+                                            </th>
+                                            <td class="text-muted">
+                                              elisee@gmail.com
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <th class="ps-0" scope="row">
+                                              Localisation :
+                                            </th>
+                                            <td class="text-muted">
+                                              Koudougou
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <th class="ps-0" scope="row">
+                                              Préférences :
+                                            </th>
+                                            <td class="text-muted">
+                                              <strong>Cinéma</strong>,
+                                              <strong>Foir</strong>,
+                                              <strong>Thèatre</strong>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <th class="ps-0" scope="row">
+                                              Date d'inscription
+                                            </th>
+                                            <td class="text-muted">
+                                              24 Nov 2021
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                  <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+                              </div>
+
+                              <!--end col-->
+                            </div>
+                            <!--end row-->
+                          </div>
+                          <div
+                            class="tab-pane fade"
+                            id="activities"
+                            role="tabpanel"
+                          >
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title mb-3">
+                                  Liste des mes évenements
+                                </h5>
+                                <section id="blog" class="blog">
+                                  <div class="container" data-aos="fade-up">
+                                    <div class="row">
+                                      <div class="col-lg-12 entries">
+                                        <article class="entry">
+                                          <div class="entry-img">
+                                            <img
+                                              th:src="@{assets_private/img/blog/IMG-20240117-WA0002.jpg}"
+                                              alt=""
+                                              class="img-fluid"
+                                            />
+                                          </div>
+
+                                          <h2 class="entry-title">
+                                            <a href="blog-single.html"
+                                              >FETE DE LA MUSIQUE AU BURKINA
+                                              FASO</a
+                                            >
+                                          </h2>
+
+                                          <div class="entry-meta">
+                                            <ul>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-person"></i>
+                                                <a href="blog-single.html"
+                                                  >John Doe</a
+                                                >
+                                              </li>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-clock"></i>
+                                                <a href="blog-single.html"
+                                                  ><time datetime="2020-01-01"
+                                                    >Jan 1, 2020</time
+                                                  ></a
+                                                >
+                                              </li>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-chat-dots"></i>
+                                                <a href="blog-single.html"
+                                                  >12 Comments</a
+                                                >
+                                              </li>
+                                            </ul>
+                                          </div>
+
+                                          <div class="entry-content">
+                                            <p>
+                                              La fete de la musique au Burkina
+                                              Faso, célébrée le 21juin, est une
+                                              joyeuse célébration de la
+                                              diversité musicale du pays. Des
+                                              artistes locaux et internationaux
+                                              captive les spectateurs avec des
+                                              performances variée, créant une
+                                              atmosphère festive dans tous le
+                                              pays. cette journée devient un
+                                              moment ou la musique transcende
+                                              les frontières, unifiant les
+                                              communautés et célébrant la
+                                              richesse culturelle du Burkina
+                                              Faso.
+                                            </p>
+                                            <div class="read-more">
+                                              <a href="blog-single.html"
+                                                >Read More</a
+                                              >
+                                            </div>
+                                          </div>
+                                        </article>
+                                        <!-- End blog entry -->
+
+                                        <article class="entry">
+                                          <div class="entry-img">
+                                            <img
+                                              th:src="@{assets_private/img/blog/IMG-20240117-WA0002.jpg}"
+                                              alt=""
+                                              class="img-fluid"
+                                            />
+                                          </div>
+
+                                          <h2 class="entry-title">
+                                            <a href="blog-single.html">SIAO </a>
+                                          </h2>
+
+                                          <div class="entry-meta">
+                                            <ul>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-person"></i>
+                                                <a href="blog-single.html"
+                                                  >John Doe</a
+                                                >
+                                              </li>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-clock"></i>
+                                                <a href="blog-single.html"
+                                                  ><time datetime="2020-01-01"
+                                                    >Jan 1, 2020</time
+                                                  ></a
+                                                >
+                                              </li>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-chat-dots"></i>
+                                                <a href="blog-single.html"
+                                                  >12 Comments</a
+                                                >
+                                              </li>
+                                            </ul>
+                                          </div>
+
+                                          <div class="entry-content">
+                                            <p>
+                                              Le SIAO (Salon International de
+                                              l'Artisanat de Ouagadougou) est un
+                                              événement majeur au Burkina Faso,
+                                              organisé tous les deux ans. Il
+                                              s'agit d'un salon dédié à la
+                                              promotion et à la valorisation du
+                                              secteur de l'artisanat, mettant en
+                                              avant le savoir-faire artisanal
+                                              local et international. Le SIAO
+                                              offre une plateforme unique aux
+                                              artisans pour exposer et
+                                              commercialiser leurs produits,
+                                              ainsi qu'un espace d'échange
+                                              culturel et économique. Cet
+                                              événement contribue
+                                              significativement à la promotion
+                                              de l'artisanat, au renforcement
+                                              des échanges entre artisans et à
+                                              la découverte de la diversité
+                                              artistique et culturelle.
+                                            </p>
+                                            <div class="read-more">
+                                              <a href="blog-single.html"
+                                                >Read More</a
+                                              >
+                                            </div>
+                                          </div>
+                                        </article>
+                                        <!-- End blog entry -->
+
+                                        <div class="blog-pagination">
+                                          <ul class="justify-content-center">
+                                            <li><a href="#">1</a></li>
+                                            <li class="active">
+                                              <a href="#">2</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                      <!-- End blog entries list -->
+                                    </div>
+                                  </div>
+                                </section>
+                              </div>
+                              <!--end card-body-->
+                            </div>
+                            <!--end card-->
+                          </div>
+                          <!--end tab-pane-->
+                          <div
+                            class="tab-pane fade"
+                            id="projects"
+                            role="tabpanel"
+                          >
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title mb-3">
+                                  Liste des mes évenements favoris
+                                </h5>
+                                <section id="blog" class="blog">
+                                  <div class="container" data-aos="fade-up">
+                                    <div class="row">
+                                      <div class="col-lg-12 entries">
+                                        <article class="entry">
+                                          <div class="entry-img">
+                                            <img
+                                              th:src="@{assets_private/img/image-3.jpg}"
+                                              alt=""
+                                              class="img-fluid"
+                                            />
+                                          </div>
+
+                                          <h2 class="entry-title">
+                                            <a href="blog-single.html"
+                                              >SOIRE ATIPIQUE DES LOISIRS</a
+                                            >
+                                          </h2>
+
+                                          <div class="entry-meta">
+                                            <ul>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-person"></i>
+                                                <a href="blog-single.html"
+                                                  >John Doe</a
+                                                >
+                                              </li>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-clock"></i>
+                                                <a href="blog-single.html"
+                                                  ><time datetime="2020-01-01"
+                                                    >Jan 1, 2020</time
+                                                  ></a
+                                                >
+                                              </li>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-chat-dots"></i>
+                                                <a href="blog-single.html"
+                                                  >12 Comments</a
+                                                >
+                                              </li>
+                                            </ul>
+                                          </div>
+
+                                          <div class="entry-content">
+                                            <p>
+                                              La fete de la musique au Burkina
+                                              Faso, célébrée le 21juin, est une
+                                              joyeuse célébration de la
+                                              diversité musicale du pays. Des
+                                              artistes locaux et internationaux
+                                              captive les spectateurs avec des
+                                              performances variée, créant une
+                                              atmosphère festive dans tous le
+                                              pays. cette journée devient un
+                                              moment ou la musique transcende
+                                              les frontières, unifiant les
+                                              communautés et célébrant la
+                                              richesse culturelle du Burkina
+                                              Faso.
+                                            </p>
+                                            <div class="read-more">
+                                              <a href="blog-single.html"
+                                                >Read More</a
+                                              >
+                                            </div>
+                                          </div>
+                                        </article>
+                                        <!-- End blog entry -->
+
+                                        <article class="entry">
+                                          <div class="entry-img">
+                                            <img
+                                              th:src="@{assets_private/img/image-4.jpg}"
+                                              alt=""
+                                              class="img-fluid"
+                                            />
+                                          </div>
+
+                                          <h2 class="entry-title">
+                                            <a href="blog-single.html">SIAO </a>
+                                          </h2>
+
+                                          <div class="entry-meta">
+                                            <ul>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-person"></i>
+                                                <a href="blog-single.html"
+                                                  >John Doe</a
+                                                >
+                                              </li>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-clock"></i>
+                                                <a href="blog-single.html"
+                                                  ><time datetime="2020-01-01"
+                                                    >Jan 1, 2020</time
+                                                  ></a
+                                                >
+                                              </li>
+                                              <li
+                                                class="d-flex align-items-center"
+                                              >
+                                                <i class="bi bi-chat-dots"></i>
+                                                <a href="blog-single.html"
+                                                  >12 Comments</a
+                                                >
+                                              </li>
+                                            </ul>
+                                          </div>
+
+                                          <div class="entry-content">
+                                            <p>
+                                              Le SIAO (Salon International de
+                                              l'Artisanat de Ouagadougou) est un
+                                              événement majeur au Burkina Faso,
+                                              organisé tous les deux ans. Il
+                                              s'agit d'un salon dédié à la
+                                              promotion et à la valorisation du
+                                              secteur de l'artisanat, mettant en
+                                              avant le savoir-faire artisanal
+                                              local et international. Le SIAO
+                                              offre une plateforme unique aux
+                                              artisans pour exposer et
+                                              commercialiser leurs produits,
+                                              ainsi qu'un espace d'échange
+                                              culturel et économique. Cet
+                                              événement contribue
+                                              significativement à la promotion
+                                              de l'artisanat, au renforcement
+                                              des échanges entre artisans et à
+                                              la découverte de la diversité
+                                              artistique et culturelle.
+                                            </p>
+                                            <div class="read-more">
+                                              <a href="blog-single.html"
+                                                >Read More</a
+                                              >
+                                            </div>
+                                          </div>
+                                        </article>
+                                        <!-- End blog entry -->
+
+                                        <div class="blog-pagination">
+                                          <ul class="justify-content-center">
+                                            <li><a href="#">1</a></li>
+                                            <li class="active">
+                                              <a href="#">2</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                      <!-- End blog entries list -->
+                                    </div>
+                                  </div>
+                                </section>
+                              </div>
+                              <!--end card-body-->
+                            </div>
+                            <!--end card-->
+                          </div>
+                          <!--end tab-pane-->
+                          <div
+                            class="tab-pane fade"
+                            id="documents"
+                            role="tabpanel"
+                          >
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title mb-3">
+                                  Edition les informations de mon compte
+                                </h5>
+                                <br />
+                                <form action="javascript:void(0);">
+                                  <div class="row">
+                                    <div class="col-lg-6">
+                                      <div class="mb-3">
+                                        <label for="fullname" class="form-label"
+                                          >Nom et prénom</label
+                                        >
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          id="fullname"
+                                          placeholder="Entrez votre nom"
+                                          value="SABIDANI ELISEE"
+                                        />
+                                      </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-6">
+                                      <div class="mb-3">
+                                        <label for="email" class="form-label"
+                                          >E-mail</label
+                                        >
+                                        <input
+                                          type="email"
+                                          class="form-control"
+                                          id="email"
+                                          placeholder="Entrez votre email"
+                                          value="esabidan@gmail.com"
+                                        />
+                                      </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-6">
+                                      <div class="mb-3">
+                                        <label for="numero" class="form-label"
+                                          >Numero de telephone</label
+                                        >
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          id="telephone"
+                                          placeholder="Entrez votre numero de telephone"
+                                          value="+(226) 56 78 56 67"
+                                        />
+                                      </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-6">
+                                      <div class="mb-3">
+                                        <label for="siege" class="form-label"
+                                          >Siège</label
+                                        >
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          id="siege"
+                                          placeholder="Entrez votre siège"
+                                          value="Ouagadougou"
+                                        />
+                                      </div>
+                                    </div>
+                                    <!--end col-->
+
+                                    <!--end col-->
+                                    <div class="col-lg-12">
+                                      <div class="mb-3">
+                                        <label
+                                          for="skillsInput"
+                                          class="form-label"
+                                          >Domaine d'activité</label
+                                        >
+                                        <select class="form-control"></select>
+                                      </div>
+                                    </div>
+
+                                    <!--end col-->
+
+                                    <!--end col-->
+                                    <div class="col-lg-12">
+                                      <div
+                                        class="hstack gap-2 justify-content-end"
+                                      >
+                                        <button
+                                          type="submit"
+                                          class="btn btn-primary text-white"
+                                        >
+                                          Sauvegarder les changements
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <!--end col-->
+                                  </div>
+                                  <!--end row-->
+                                </form>
+                              </div>
+                            </div>
+                            <br />
+
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title mb-3">
+                                  Edition les informations d'authentification
+                                </h5>
+                                <br />
+                                <form action="javascript:void(0);">
+                                  <div class="row g-2">
+                                    <div class="col-lg-4">
+                                      <div>
+                                        <label
+                                          for="oldpasswordInput"
+                                          class="form-label"
+                                          >Ancien mot de passe*</label
+                                        >
+                                        <input
+                                          type="password"
+                                          class="form-control"
+                                          id="oldpasswordInput"
+                                          placeholder="Entrez votre mot de passe actuel"
+                                        />
+                                      </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-4">
+                                      <div>
+                                        <label
+                                          for="newpasswordInput"
+                                          class="form-label"
+                                          >Nouveau mot de passe*</label
+                                        >
+                                        <input
+                                          type="password"
+                                          class="form-control"
+                                          id="newpasswordInput"
+                                          placeholder="Entrez votre nouveau mot de passe"
+                                        />
+                                      </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-4">
+                                      <div>
+                                        <label
+                                          for="confirmpasswordInput"
+                                          class="form-label"
+                                          >Confirmer votre nouveau mot de
+                                          passe*</label
+                                        >
+                                        <input
+                                          type="password"
+                                          class="form-control"
+                                          id="confirmpasswordInput"
+                                          placeholder="Répétez votre nouveau mot de passe"
+                                        />
+                                      </div>
+                                    </div>
+                                    <!--end col-->
+                                    <br />
+                                    <div class="col-lg-12">
+                                      <div class="mb-3">
+                                        <a
+                                          href="javascript:void(0);"
+                                          class="link-primary text-decoration-underline"
+                                          >Mot de passe oublier ?</a
+                                        >
+                                      </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-12">
+                                      <div class="text-end">
+                                        <button
+                                          type="submit"
+                                          class="btn btn-primary text-white"
+                                        >
+                                          Changer de mot de passe
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <!--end col-->
+                                  </div>
+                                  <!--end row-->
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                          <!--end tab-pane-->
+                        </div>
+                        <!--end tab-content-->
+                      </div>
+                    </div>
+                    <!--end col-->
+                  </div>
+                  <!--end row-->
+                </div>
+                <!-- container-fluid -->
+              </div>
+              <!-- End Page-content -->
+
+              <footer class="footer">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <script>
+                        document.write(new Date().getFullYear());
+                      </script>
+                      © FasoEvent.
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-sm-end d-none d-sm-block">
+                        Developpé par le groupe de java unz
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+            </div>
+
+            <!-- fin de bienvenue -->
+
+            <!-- main-panel ends -->
+          </div>
+          <!-- page-body-wrapper ends -->
+        </div>
+      </div>
+    </div>
+    <!-- plugins:js -->
+    <script src="../../vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="../../js/off-canvas.js"></script>
+    <script src="../../js/hoverable-collapse.js"></script>
+    <script src="../../js/template.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <!-- End custom js for this page-->
+  </body>
+</html>

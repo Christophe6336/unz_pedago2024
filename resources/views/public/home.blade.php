@@ -41,11 +41,11 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
+  <header id="header" class="fixed-top d-flex align-items-center  header-transparent" style="background-image: url('{{ asset('assets/banniere_unz.png') }}') ">
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="">UNZ-PEDAGO</a></h1>
+        <h1><a href="" class="btn btn-primary">UNZ-PEDAGO</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -219,7 +219,7 @@
                 </p>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-1.png" alt="" class="img-fluid">
+                <img src="assets/logo_har.png" alt="" class="img-fluid">
               </div>
             </div>
           </div>
@@ -241,7 +241,7 @@
                 </ul>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-2.png" alt="" class="img-fluid">
+                <img src="assets/logo_har.png" alt="" class="img-fluid">
               </div>
             </div>
           </div>
@@ -259,7 +259,7 @@
                 </ul>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-3.png" alt="" class="img-fluid">
+                <img src="assets/logo_har.png" alt="" class="img-fluid">
               </div>
             </div>
           </div>
@@ -279,7 +279,7 @@
                 </ul>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-4.png" alt="" class="img-fluid">
+                <img src="assets/logo_har.png" alt="" class="img-fluid">
               </div>
             </div>
           </div>
@@ -289,20 +289,7 @@
     </section><!-- End Features Section -->
 
     <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
-      <div class="container">
 
-        <div class="row" data-aos="zoom-out">
-          <div class="col-lg-9 text-center text-lg-start">
-            <h3>Reliser pour mieux se renseigner</h3>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">CLIQUEZ</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -341,12 +328,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 mt-5">
-            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="400">
-              <div class="icon"><i class="bi bi-globe" style="color: #d6ff22;"></i></div>
-              <h4 class="title"><a href="">Planning des cours</a></h4>
-            </div>
-          </div>
+         
 
           <div class="col-lg-4 col-md-6 mt-5">
             <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="400">

@@ -290,7 +290,7 @@ h6 {
   padding: 10px 20px;
   margin: 5px;
   font-size: 15px;
-  color: #2a2c39;
+  color: #2a2a39;
 }
 
 .navbar-mobile a:hover,
@@ -1519,7 +1519,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #14151c;
+  background: #1ea40f;
   color: #fff;
   font-size: 14px;
   text-align: center;
@@ -1550,7 +1550,7 @@ section {
 #footer .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #ef6603;
+  background: #1303ef;
   color: #fff;
   line-height: 1;
   padding: 8px 0;

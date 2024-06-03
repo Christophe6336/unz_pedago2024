@@ -13,18 +13,16 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->time('jour_debut');
-            $table->time('jour_fin');
+            $table->date('jour_debut');
+            $table->date('jour_fin');
             $table->time('heure_debut');
             $table->time('heure_fin');
             $table->string('enseignant');
-            $table->string('module');
-            $table->string('ufr');
-            $table->string('filiere');
-            $table->Integer('promotion');
-            $table->string('semestre');
-            $table->string('lieu');
-
+           // $table->string('ufr');
+            //$table->string('filiere');
+            //$table->Integer('promotion');
+           // $table->string('semestre');
+            $table->string('statut')->default('Non valide');
 $table->timestamps();
         });
     }

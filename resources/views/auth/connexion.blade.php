@@ -42,14 +42,14 @@
 
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center ">
+  <header id="header" class="fixed-top d-flex align-items-center" style="background-image: url('{{ asset('assets/banniere_unz.png') }}')">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <div class="logo">
-        <h1><a href="{{ route('connexion.store') }}">UNZ-PEDAGO</a></h1>
+
+        <h1 class="btn btn-primary"><a href="{{ route('connexion.store') }}">UNZ-PEDAGO</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
+
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -73,7 +73,8 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Bienvenue dans la page de connexion UNZ-PEDAGO</h2>
+
+         <h1 style="color: green;"> <strong>Bienvenue dans la page de connexion UNZ-PEDAGO  </strong></h1>
           <ol>
           </ol>
         </div>
@@ -99,9 +100,25 @@
     </div>
 @endif
 
+<!-- Logo de votre application -->
+<div class="logo-container">
+    <img src="assets/logo_unz.jpg" alt="Votre logo">
+</div>
+<style>.logo-container {
+    width: 20%; /* Occupe la moitié de la largeur de la page */
+    margin: 0 auto; /* Centre l'image horizontalement */
+    text-align: center; /* Centre l'image horizontalement si la largeur de l'image est inférieure à 50% */
+}
 
+.logo-container img {
+    max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur de son conteneur */
+    height: auto; /* Gardez le rapport hauteur/largeur de l'image */
+}
+</style>
     <section class="inner-page">
       <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
         <p>
             <form action="{{ route('login') }}" method="POST">
 
@@ -132,13 +149,25 @@
                                              </div>
                                              </div>
                                                  <div class="row mt-2"> <div class="col-md-12">
+                                                    <div class="col-12">
+                                                        <div class="form-check">
+                                                          <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+                                                          <label class="form-check-label" for="inlineFormCheck">
+                                                            Se Souvenir de moi
+                                                          </label>
+                                                        </div>
+                                                      </div>
+
                                                     <button type="submit" class="btn btn-primary w-100 signup-button">CONNEXION</button>
                                                 </div>
                                             </div>
-                                             <div class="member mt-1"> <span>Vous n'avez pas de compte?</span>
+                                            <div class="container">
+                                             <div class="member mb-3"> <span>Vous n'avez pas de compte?</span>
                                                      <a class="text-decoration-none" href="{{ route('inscription') }}">INSCRIPTION</a> </div> </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
                                                 <div class="col-md-6">
 
                                                     <div class="right-side-content">
@@ -146,6 +175,8 @@
         </div>
         </p>
       </div>
+    </div>
+</div>
     </section>
 
   </main><!-- End #main -->

@@ -11,6 +11,12 @@ class Batiment extends Model
     protected $fillable = [
         'id',
         'nom',
+        'image',
         ];
+
+        public function salles()
+    {
+        return $this->hasMany(Salle::class);
+    }
 
 }

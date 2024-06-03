@@ -17,16 +17,26 @@ class PropertyImport implements ToModel
 
 
         return new Property([
-            'jour' => $row[0],
-            'heure_debut' => $row[1],
-            'heure_fin' => $row[2],
-            'enseignant' => $row[3],
-            'module' => $row[4],
-            'ufr' => $row[5],
-            'filiere' => $row[6],
-            'promotion' => $row[7],
-            'semestre' => $row[8],
-            'lieu' => $row[9],
+
+
+            'jour_debut' => $row[0],
+            'jour_fin' => $row[1],
+            'heure_debut' => $row[2],
+            'heure_fin' => $row[3],
+            'enseignant' => $row[4],
+            'user_id' => $row[8],
+            'ufr_id' => $row[13],
+            'filiere_id' => $row[14],
+            'promotion_id' => $row[15],
+            'semestre_id' => $row[16],
+            'batiment_id' => $row[11],
+            'salle_id' => $row[10],
+            'statut' => $row[5],
+            'module_id' => $row[9],
+            //'telegram_id' => $row[15],
+            'annee_academique_id' => $row[12],
         ]);
     }
-}
+
+    }
+

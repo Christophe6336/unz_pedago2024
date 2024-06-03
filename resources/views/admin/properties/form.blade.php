@@ -3,8 +3,14 @@
 @section('title', $property->exists ? "Éditer" : "Créer")
 
 @section('content')
-    <h1 class="text-center">PLANNIFIER VOTRE COURS Dr {{ $user->nom}} </h1>
 
+<div class="col-md-6">
+
+            </div>
+            <h1 class="text-center" style="color: green;">PLANNIFIER VOTRE COURS Dr {{ $user->nom}} </h1>
+
+
+    <a href="{{ route('admin.property.index') }}" class="btn btn-secondary"> Retour</a>
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -16,16 +22,44 @@
             @csrf
             @method($property->exists ? 'put' : 'post')
 
+
+<section class="inner-page">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Logo de votre application -->
+
+ <div class="logo-containe">
+    <img src="{{ asset('assets/img/logo_unz.jpg') }}" alt="Votre logo">
+
+</div>
             <!-- Champs Module -->
             <div class="form-group row">
-                <label for="module" class="col-sm-3 col-form-label">MODULE</label>
+                <label for="module" class="col-sm-3 col-form-label">Module</label>
                 <div class="col-sm-9">
-                    <input type="text" id="module" name="module" class="form-control" placeholder="Veuillez entrez le module" value="{{ $property->module }}">
-                    @error('module')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
+                    <select class="form-control" id="module" name="module_id">
+                        @foreach ($user->modules as $module)
+                            <option value="{{ $module->id }}">{{ $module->nom }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label for="annee_academique_id" class="col-sm-3 col-form-label">Année académique</label>
+                <div class="col-sm-9">
+                    <select id="annee_academique_id" name="annee_academique_id" class="form-control">
+                        @foreach($annee_academiques as $annee_academique)
+                            <option value="{{ $annee_academique->id }}">
+                                {{ $annee_academique->annee_debut }} - {{ $annee_academique->annee_fin }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
 
             <!-- Champs Enseignant -->
             <div class="form-group row">
@@ -38,75 +72,87 @@
             </div>
 
             <!-- Champs UFR -->
-            <div class="form-group row">
-                <label for="ufr" class="col-sm-3 col-form-label">UFR</label>
-                <div class="col-sm-9">
-                    <select id="ufr" name="ufr" class="form-control">
-                        <option value="ST">ST</option>
-                        <option value="SEG">SEG</option>
-                        <option value="LSH">LSH</option>
-                    </select>
-                </div>
-            </div>
+           <!-- Champs UFR -->
+<div class="form-group row">
+    <label for="ufr" class="col-sm-3 col-form-label">UFR</label>
+    <div class="col-sm-9">
+        <select id="ufr" name="ufr_id" class="form-control">
+            @foreach($ufrs as $ufr)
+                <option value="{{ $ufr->id }}">{{ $ufr->nom }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
 
-            <!-- Champs Filière -->
-            <div class="form-group row">
-                <label for="filiere" class="col-sm-3 col-form-label">FILIERE</label>
-                <div class="col-sm-9">
-                    <select id="filiere" name="filiere" class="form-control">
-                        <!-- Options dynamiquement générées en JavaScript -->
-                    </select>
-                </div>
-            </div>
 
-            <!-- Champs Promotion -->
-            <div class="form-group row">
-                <label for="promotion" class="col-sm-3 col-form-label">PROMOTION</label>
-                <div class="col-sm-9">
-                    <select id="promotion" name="promotion" class="form-control">
-                        @for ($year = 2014; $year <= 2024; $year++)
-                            <option value="{{ $year }}">{{ $year }}</option>
-                        @endfor
-                    </select>
-                </div>
+          <!-- Champs Filière -->
+          <div class="form-group row">
+            <label for="filiere" class="col-sm-3 col-form-label">FILIERE</label>
+            <div class="col-sm-9">
+                <select id="filiere" name="filiere_id" class="form-control">
+                    @foreach($filieres as $filiere)
+                        <option value="{{ $filiere->id }}">{{ $filiere->nom }}</option>
+                    @endforeach
+                </select>
             </div>
+        </div>
+
+
+
+          <!-- Champs Promotion -->
+<div class="form-group row">
+    <label for="promotion" class="col-sm-3 col-form-label">PROMOTION</label>
+    <div class="col-sm-9">
+        <select id="promotion" name="promotion_id" class="form-control">
+            @foreach($promotions as $promotion)
+                <option value="{{ $promotion->id }}">{{ $promotion->annee }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+
 
             <!-- Champs Semestre -->
             <div class="form-group row">
-                <label for="semestre" class="col-sm-3 col-form-label">SEMESTRE</label>
+                <label for="semestre" class="col-sm-3 col-form-label">SEMESTRES</label>
                 <div class="col-sm-9">
-                    <select id="semestre" name="semestre" class="form-control">
-                        <option value="S1">S1</option>
-                        <option value="S2">S2</option>
-                        <option value="S3">S3</option>
-                        <option value="S4">S4</option>
-                        <option value="S5">S5</option>
-                        <option value="S6">S6</option>
+                    <select id="semestre" name="semestre_id" class="form-control">
+                        @foreach($semestres as $semestre)
+                            <option value="{{ $semestre->id }}">{{ $semestre->intitule }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
+
+
+
 
             <!-- Champs Lieu -->
-            <div class="form-group row">
-                <label for="semestre" class="col-sm-3 col-form-label">Batiments/salle</label>
-                <div class="col-sm-9">
-                    <select id="lieu" name="lieu" class="form-control">
-                        <option value="WEND-PANGA">WEND-PANGA/Salle 1</option>
-                        <option value="WEND-PANGA">WEND-PANGA/Salle 2</option>
-                        <option value="WEND-PANGA">WEND-PANGA/Salle 3</option>
-                        <option value="WEND-PANGA">WEND-PANGA/Salle 4</option>
-                        <option value="AMPHI 500">AMPHI 500</option>
-                        <option value="AMPHI 750">AMPHI 750</option>
-                        <option value="AMPHI 1000">AMPHI 1000</option>
-                        <option value="AMPHI TOGOYENI">AMPHI TOGOYENI</option>
-                        <option value="CPI">CPI-EST</option>
-                        <option value="CPI">CPI-CENTRE</option>
-                        <option value="CPI">CPI-OUEST</option>
-                        <option value="Salle">Salle Informatique</option>
-                    </select>
-                </div>
-            </div>
 
+
+           <!-- Votre code HTML existant pour le champ de sélection du bâtiment -->
+           <div class="form-group row">
+            <label for="batiment" class="col-sm-3 col-form-label">Bâtiment</label>
+            <div class="col-sm-9">
+                <select id="batiment" name="batiment_id" class="form-control">
+                    <!-- Options du champ de sélection du bâtiment -->
+                    @foreach($batiments as $batiment)
+                        <option value="{{ $batiment->id }}">{{ $batiment->nom }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="salle" class="col-sm-3 col-form-label">Salle</label>
+            <div class="col-sm-9">
+                <select id="salle" name="salle_id" class="form-control">
+                    @foreach($salles as $salle)
+                        <option value="{{ $salle->id }}">{{ $salle->nom }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
             <!-- Champs Jour Debut et Jour Fin -->
             <div class="form-group row">
                 <label for="jour_debut" class="col-sm-3 col-form-label">Jour Début</label>
@@ -142,6 +188,10 @@
                 @enderror
                 </div>
             </div>
+            <input type="hidden" name="user_id" value="{{ $user->id }}">
+            <input type="hidden" for="telegram_id" name="telegram_id" value="{{ $user->telegram_id }}">
+
+
 
             <!-- Bouton de soumission -->
             <div class="text-center">
@@ -155,91 +205,20 @@
             </div>
         </form>
     </div>
-
-    <!-- Le formulaire pour choisir un fichier -->
-    <div>
-    <div class="container text-center mt-3">
-        <form action="{{ route('import.excel') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <input type="file" name="fichier_excel" class="form-control" aria-label="file example" accept=".csv" required>
-            <div class="invalid-feedback">Veuillez sélectionner un fichier Excel.</div>
-            <button type="submit" class="btn btn-info mt-3">Importer</button>
-        </form>
-    </div>
 </div>
-    <!-- Script JavaScript pour la gestion des sélections UFR et filière -->
-    <script>
-       document.addEventListener('DOMContentLoaded', function() {
-    const ufrSelect = document.getElementById('ufr');
-    const filiereSelect = document.getElementById('filiere');
-    const semestreSelect = document.getElementById('semestre');
+</div>
+</div>
+</div>
+</section>
+<style>.logo-containe {
+    width: 40%; /* Occupe la moitié de la largeur de la page */
+    margin: 0 auto; /* Centre l'image horizontalement */
+    text-align: center; /* Centre l'image horizontalement si la largeur de l'image est inférieure à 50% */
+}
 
-    const filieresParUFR = {
-        'ST': ['MPCI', 'SVT', 'Mathematique', 'Physique', 'Chimie', 'Informatique'],
-        'SEG': ['Economie','Gestion','APE','EAE','ESG'],
-        'LSH': ['Histoire_Archeologie', 'LM', 'Psychologie','Géographie','SID','Linguistique','Philosophie']
-    };
-
-    const semestresParFiliere = {
-        'MPCI': ['S1', 'S2', 'S3'],
-        'SVT': ['S1', 'S2', 'S3'],
-        'Mathematique': ['S4', 'S5', 'S6'],
-        'Physique': ['S4', 'S5', 'S6'],
-        'Chimie': ['S4', 'S5', 'S6'],
-        'Informatique': ['S4', 'S5', 'S6'],
-        'Economie': ['S1', 'S2', 'S3', 'S4', 'S5'],
-        'Gestion': ['S1', 'S2', 'S3', 'S4', 'S5'],
-        'APE': ['S6'],
-        'EAE': ['S6'],
-        'ESG': ['S6'],
-        'Histoire_Archeologie': ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'],
-        'LM': ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'],
-        'Psychologie': ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'],
-        'Géographie': ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'],
-        'SID': ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'],
-        'Linguistique': ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'],
-        'Philosophie': ['S1', 'S2', 'S3', 'S4', 'S5', 'S6']
-    };
-
-    ufrSelect.addEventListener('change', function() {
-        const selectedUFR = this.value;
-        const filieres = filieresParUFR[selectedUFR];
-
-        // Efface les options existantes
-        filiereSelect.innerHTML = '';
-        semestreSelect.innerHTML = '';
-
-        // Génère les nouvelles options de filière
-        filieres.forEach(filiere => {
-            const option = document.createElement('option');
-            option.value = filiere;
-            option.text = filiere;
-            filiereSelect.appendChild(option);
-        });
-
-        // Déclenche l'événement de changement pour initialiser les options de la filière
-        filiereSelect.dispatchEvent(new Event('change'));
-    });
-
-    filiereSelect.addEventListener('change', function() {
-        const selectedFiliere = this.value;
-        const semestres = semestresParFiliere[selectedFiliere] || [];
-
-        // Efface les options existantes
-        semestreSelect.innerHTML = '';
-
-        // Génère les nouvelles options de semestre
-        semestres.forEach(semestre => {
-            const option = document.createElement('option');
-            option.value = semestre;
-            option.text = semestre;
-            semestreSelect.appendChild(option);
-        });
-    });
-
-    // Déclenche l'événement de changement pour initialiser les options de l'UFR
-    ufrSelect.dispatchEvent(new Event('change'));
-});
-
-    </script>
+.logo-containe img {
+    max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur de son conteneur */
+    height: auto; /* Gardez le rapport hauteur/largeur de l'image */
+}
+</style>
 @endsection

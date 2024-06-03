@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('batiments', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

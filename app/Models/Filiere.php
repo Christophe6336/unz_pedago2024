@@ -12,4 +12,14 @@ class Filiere extends Model
         'id',
         'nom',
         ];
+        
+    public function ufr()
+    {
+        return $this->belongsTo(UFR::class);
+    }
+
+    public function semestres()
+    {
+        return $this->hasMany(Semestre::class);
+    }
 }

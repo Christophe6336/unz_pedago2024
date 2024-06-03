@@ -12,4 +12,9 @@ class Promotion extends Model
         'id',
         'annee',
         ];
+
+        public function anneesAcademiques()
+        {
+            return $this->hasMany(AnneeAcademique::class);
+        }
 }

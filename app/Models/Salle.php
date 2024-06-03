@@ -13,4 +13,9 @@ class Salle extends Model
         'nom',
         'capacite',
         ];
+
+        public function batiment()
+    {
+        return $this->belongsTo(Batiment::class);
+    }
 }

@@ -52,11 +52,14 @@ $user = Auth::user();
 
 // Rediriger en fonction du rôle de l'utilisateur
 if ($user->role === 'etudiant') {
-    return redirect()->intended('/etudiant')->with('success', 'Vous êtes connecté au compte étudiant .Bienvenue à UNZ-PEDAGO');;
+    return redirect()->intended('/homeetudiant')->with('success', 'Vous êtes connecté au compte étudiant .Bienvenue à UNZ-PEDAGO');;
 } elseif ($user->role === 'enseignant') {
     return redirect()->intended('/admin/property')->with('success', 'Vous êtes connecté au compte Professeur avec succès.Bienvenue à UNZ-PEDAGO');;
 } elseif ($user->role === 'chefdepart') {
     return redirect()->intended('/chef')->with('success', 'Vous êtes connecté au compte du Chef de departement avec succès.');;
+}
+elseif ($user->role === 'csaf') {
+    return redirect()->intended('/materials')->with('success', 'Vous êtes connecté au compte du CSAF.');;
 }
 
 }

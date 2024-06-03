@@ -103,21 +103,48 @@
                 </a>
             </li>
 
-
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('rehome')}}">
                   <i class="mdi mdi-equal-box menu-icon"></i>
-                  <span class="menu-title">Programme valide</span>
+                  <span class="menu-title">Module</span>
                 </a>
               </li>
-
-
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <i class="mdi mdi-equal-box menu-icon"></i>
-                <span class="menu-title">Programmes en cours</span>
-              </a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('filieres.index')}}">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">Filière</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">U_E_S</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">U_F_R</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">Semestre</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('homebat')}}">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">Batiment</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('salle.index')}}">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">Salle</span>
+                </a>
+              </li>
             <li class="nav-item active">
                 <a class="nav-link" href="">
                   <i class="mdi mdi-account-multiple menu-icon"></i>
@@ -172,47 +199,62 @@
                           aria-selected="true"
                           >Informations sur les utilisateurs</a
                         >
-                        <a href="{{ route('creer')}}" class="btn btn-primary"> Ajouter</a>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>NOM</th>
-                                    <th>PRENOM</th>
-                                    <th>EMAIL</th>
-                                    <th>MATRICULE</th>
-                                    <th>TELEPHONE</th>
-                                    <th>ROLE</th>
+                        <a href="{{ route('creer')}}" class="btn btn-success"> Ajouter enseignant</a>
+                        <a href="{{ route('creer_etudiant') }}" class="btn btn-secondary"> Ajouter étudiant/chefdepart</a>
 
+                        <div class="row mt-3">
+                            @foreach ($users as $user)
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title"> {{ $user->prenom }} {{ $user->nom }} </h5>
+                                        <button type="button" class="btn btn-primary btn-sm" onclick="toggleDetails('{{ $user->id }}')" id="showInfo{{ $user->id }}">Afficher les détails</button>
+                                        <div id="info{{ $user->id }}" style="display: none;">
+                                            <p class="card-text">
+                                                <strong>ID:</strong> {{ $user->id}}<br>
+                                                <strong>Telegram_ID:</strong> {{ $user->telegram_id }}<br>
+                                                <strong>Nom:</strong> {{ $user->nom }}<br>
+                                                <strong>Prenom:</strong> {{ $user->prenom }}<br>
+                                                <strong>Email:</strong> {{ $user->email }} <br>
+                                                <strong>Matricule:</strong> {{ $user->ine }} <br>
+                                                <strong>Téléphone:</strong> {{ $user->telephone }} <br>
+                                                <strong>Rôle:</strong> {{ $user->role }} <br>
+                                                <strong>Module Associé:</strong>
+                                                @if ($user->modules->isNotEmpty())
+                                                    {{ $user->modules->first()->nom }} <!-- Afficher le premier module associé -->
+                                                @else
+                                                    Aucun module associé
+                                                @endif
+                                            </p>
+                                            <div class="d-flex justify-content-end">
+                                                <a href="{{ route('editer', $user) }}" class="btn btn-primary">MODIFIER</a>
+                                                <form action="{{ route('supprimer', $user) }}" method="post">
+                                                    @csrf
+                                                    @method("delete")
+                                                    <button class="btn btn-danger">RETIRER</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
 
-                                    <th class="text-end">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($users as $user )
-                                <tr>
-                                  <td> {{$user->nom}} </td>
-                                        <td>  {{$user->prenom}}   </td>
-                                    <td> {{$user->email}} </td>
-                                        <td>  {{$user->ine}}  </td>
-                                            <td> {{$user->telephone}}  </td>
-                                            <td> {{$user->role}}  </td>
-                                            <td>
-                                                <div class="d-flex gap-2 w-100 justify-content-end">
-                                                    <a href="{{ route('editer', $user) }}" class="btn btn-primary">MODIFIER</a>
-                                                    <form action="{{route('supprimer', $user)}}" method="post">
-                                                        @csrf
-                                                        @method("delete")
-                                                        <button class="btn btn-danger">RETIRER</button>
-                                                    </form>
-                                                </div>
-                                            </td>
+                        <script>
+                            // Fonction pour afficher/cacher les détails
+                            function toggleDetails(id) {
+                                var x = document.getElementById("info" + id);
+                                if (x.style.display === "none") {
+                                    x.style.display = "block";
+                                    document.getElementById("showInfo" + id).textContent = "Cacher les détails";
+                                } else {
+                                    x.style.display = "none";
+                                    document.getElementById("showInfo" + id).textContent = "Afficher les détails";
+                                }
+                            }
+                        </script>
 
-                                </tr>
-
-                                @endforeach
-                            </tbody>
-
-                        </table>
                       </li>
                     </ul>
                     <div class="tab-content py-0 px-0">

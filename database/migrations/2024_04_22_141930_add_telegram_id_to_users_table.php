@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('u_f_rs', function (Blueprint $table) {
-            $table->id();
-            $table->string('nom');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('telegram_id')->unique()->nullable()->after('id');
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('u_f_rs');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('telegram_id');
+        });
     }
 };

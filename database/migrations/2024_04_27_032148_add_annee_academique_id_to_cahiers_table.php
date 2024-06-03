@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('role_user', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('role_id')->constrained();
-            $table->foreignId('user_id')->constrained();
-            $table->timestamps();
+        Schema::table('cahiers', function (Blueprint $table) {
+            $table->unsignedBigInteger('annee_academique_id');
+            $table->foreign('annee_academique_id')->references('id')->on('annee_academiques')->onDelete('cascade');
         });
     }
 
@@ -24,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('role_user');
+        Schema::table('cahiers', function (Blueprint $table) {
+            //
+        });
     }
 };

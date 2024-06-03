@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'telegram_id',
         'nom',
         'prenom',
         'email',
@@ -25,6 +26,7 @@ class User extends Authenticatable
         'telephone',
         'password',
         'role',
+        'telegram_id'
     ];
 
     /**
@@ -60,6 +62,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+    public function modules()
+{
+    return $this->belongsToMany(Module::class);
+}
+
 
     // Méthode pour vérifier si l'utilisateur a un rôle spécifique
     public function hasRole($role)

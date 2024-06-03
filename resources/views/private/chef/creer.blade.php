@@ -8,7 +8,7 @@
                 <div class="card-header">Création d'un nouvel utilisateur</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('creat') }}">
+                    <form method="POST" action="{{ route('storeEnseignant') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -26,6 +26,17 @@
                                 <input id="prenom" type="text" class="form-control" name="prenom" required>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="module_id" class="col-md-4 col-form-label text-md-right">Module</label>
+                            <div class="col-md-6">
+                                <select id="module_id" name="module_id" class="form-control" required>
+                                    @foreach ($modules as $module)
+                                        <option value="{{ $module->id }}">{{ $module->nom }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">E-mail</label>
@@ -36,10 +47,18 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="ine" class="col-md-4 col-form-label text-md-right">INE</label>
+                            <label for="ine" class="col-md-4 col-form-label text-md-right">MATRICULE</label>
 
                             <div class="col-md-6">
                                 <input id="ine" type="text" class="form-control" name="ine" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="telegram_id" class="col-md-4 col-form-label text-md-right">TELEGRAM_ID</label>
+
+                            <div class="col-md-6">
+                                <input id="telegram_id" type="text" class="form-control" name="telegram_id" required>
                             </div>
                         </div>
 
@@ -60,11 +79,13 @@
 
                         <div class="form-group row">
                             <label for="role" class="col-md-4 col-form-label text-md-right">Rôle</label>
-
                             <div class="col-md-6">
-                                <input id="role" type="text" class="form-control" name="role" required>
+                                <input id="role" type="text" class="form-control" name="role" value="{{ $defaultRole }}" disabled>
                             </div>
                         </div>
+
+
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

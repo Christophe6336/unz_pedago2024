@@ -8,9 +8,10 @@
                 <div class="card-header">Modification de l'utilisateur</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('modifier', $user) }}">
+                    <form method="POST" action="{{ route('users.update', $user) }}">
                         @csrf
-                        @method('GET') <!-- Utilisez la méthode PUT pour la mise à jour -->
+                        @method('PUT')
+        <!-- Utilisez la méthode PUT pour la mise à jour -->
 
                         <div class="form-group row">
                             <label for="nom" class="col-md-4 col-form-label text-md-right">Nom</label>

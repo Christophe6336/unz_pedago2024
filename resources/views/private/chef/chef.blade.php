@@ -35,7 +35,7 @@
               ><img src="assets_private/images/logo.svg" alt="logo"
             /></a>
             <a class="navbar-brand brand-logo-mini" href="index.html"
-              ><img src="assets_private/images/logo-mini.svg" alt="logo"
+              ><img src="assets/logo-mini.svg" alt="logo"
             /></a>
             <button
               class="navbar-toggler navbar-toggler align-self-center"
@@ -77,6 +77,7 @@
                  <div class="btn btn-danger">Deconnexion</div>
                 </a>
               </div>
+
             </li>
           </ul>
           <button
@@ -102,23 +103,50 @@
                     <span class="menu-title">Nouveau Programme</span>
                 </a>
             </li>
-
-
-            <li class="nav-item">
-                <a class="nav-link" href="">
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('rehome')}}">
                   <i class="mdi mdi-equal-box menu-icon"></i>
-                  <span class="menu-title">Programme valide</span>
+                  <span class="menu-title">Module</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('filieres.index')}}">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">Filière</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('ues.index')}}">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">U_E_S</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('ufrs.index')}}">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">U_F_R</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('semestres.index')}}">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">Semestre</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('homebat')}}">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">Batiment</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('salle.index')}}">
+                  <i class="mdi mdi-equal-box menu-icon"></i>
+                  <span class="menu-title">Salle</span>
                 </a>
               </li>
 
-
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <i class="mdi mdi-equal-box menu-icon"></i>
-                <span class="menu-title">Programmes en cours</span>
-              </a>
-            </li>
-            <li class="nav-item">
+<li class="nav-item">
                 <a class="nav-link" href="{{route('afficheuser')}}">
                   <i class="mdi mdi-account-multiple menu-icon"></i>
                   <span class="menu-title">Gestions des utilisateurs </span>
@@ -145,6 +173,21 @@
                             {{ session('success') }}
                         </div>
                         @endif
+                        <!-- Logo de votre application -->
+<div class="logo-container">
+    <img src="assets/logo_har.png" alt="Votre logo">
+</div>
+<style>.logo-container {
+    width: 20%; /* Occupe la moitié de la largeur de la page */
+    margin: 0 auto; /* Centre l'image horizontalement */
+    text-align: center; /* Centre l'image horizontalement si la largeur de l'image est inférieure à 50% */
+}
+
+.logo-container img {
+    max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur de son conteneur */
+    height: auto; /* Gardez le rapport hauteur/largeur de l'image */
+}
+</style>
                       <h2>Bienvenue dans votre tableau de bord MR {{ $user->nom}}</h2>
                     </div>
                   </div>
@@ -166,7 +209,7 @@
 
 
                 @if ($properties->isEmpty())
-                <strong>  Aucun résultat trouvé pour la recherche : {{ request('query') }}</strong>
+                <strong>  Aucun Programme{{ request('query') }}</strong>
             @endif
 
               </nav>
@@ -177,68 +220,68 @@
                   <div class="card-body dashboard-tabs p-0">
                     <ul class="nav nav-tabs px-4" role="tablist">
                       <li class="nav-item">
-                        <a
-                          class="nav-link active"
-                          id="overview-tab"
-                          data-bs-toggle="tab"
-                          href="#overview"
-                          role="tab"
-                          aria-controls="overview"
-                          aria-selected="true"
-                          >Nouveau Programme</a
-                        >
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Jour_debut</th>
-                                    <th>Jour_fin</th>
-                                    <th>Heure_debut</th>
-                                    <th>Heure_fin</th>
-                                    <th>Enseignant</th>
-                                    <th>Module</th>
-                                    <th>UFR</th>
-                                    <th>Filiere</th>
-                                    <th>Promotion</th>
-                                    <th>Semestre</th>
-                                    <th>Lieu</th>
+
+                        <div class="row mt-3">
+                            @foreach ($properties as $property)
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Programme du {{ $property->jour_debut }} au {{ $property->jour_fin }} de <strong>Annee_academique:</strong> {{ $property->annee_academique->annee_debut }}- {{ $property->annee_academique->annee_fin }}
+                                            <strong>Programme Numero:</strong> {{ $property->id }} <br>
+                                        </h5>
+                                        <button type="button" class="btn btn-primary btn-sm" onclick="toggleDetails('{{ $property->id }}')" id="showInfo{{ $property->id }}">Afficher les détails</button>
+                                        <div id="info{{ $property->id }}" style="display: none;">
+                                            <p class="card-text">
+                                                <strong>Heure:</strong> {{ $property->heure_debut }} - {{ $property->heure_fin }} <br>
+                                                <strong>Enseignant:</strong> Docteur {{ $property->enseignant }} <br>
+                                                <strong>Module:</strong> {{ $property->module->nom }} <br>
+                                                <strong>UFR:</strong> {{ $property->ufr->nom }} <br>
+                                                <strong>Filiere:</strong> {{ $property->filiere ->nom}} <br>
+                                                <strong>Promotion:</strong> {{ $property->promotion->annee }} <br>
+                                                <strong>Semestre:</strong> {{ $property->semestre->intitule }} <br>
+                                                <strong>Bâtiment:</strong> {{ $property->batiment->nom }} <br>
+                                                <strong>Salle:</strong> {{ $property->salle->nom }} <br>
+                                                @if (strtolower($property->statut) === 'valide')
+                                                <strong>Statut:</strong> Validé <i class="bi bi-check-circle-fill text-success"></i></strong>
+                                                @else
+                                                <strong>Statut:</strong> Non valide
+                                                @endif
+                                            </p>
+                                            <div class="d-flex justify-content-end">
+                                                @if ($property->statut !== 'valide')
+                                                <form method="POST" action="{{ route('valider', $property->id) }}">
+                                                    @csrf
+                                                    <input type="hidden" name="telegram_id" value="{{ $property->user->telegram_id }}">
+                                                    <button class="btn btn-success" type="submit" onclick="return confirmAction('Voulez vous valider le programme ?')">Valide</button>
+                                                </form>
+
+                                                <a href="{{ route('setting', $property->id) }}" class="btn btn-primary">EDITER</a>
+                                                @endif
+
+                                                @if ($property->statut === 'valide')
+                                                <form method="POST" action="{{ route('property.publish', $property->id) }}">
+                                                    @csrf
+                                                    <button class="btn btn-success" type="submit" onclick="return confirmAction('Voulez vous publier cet programme ?')">Publier</button>
+                                                </form>
+
+                                            @endif
 
 
-                                    <th class="text-end">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($properties as $property )
-                                <tr>
-                                  <td> {{$property->jour_debut}} </td>
-                                        <td>  {{$property->jour_fin}}   </td>
-                                    <td> {{$property->heure_debut}} </td>
-                                        <td>  {{$property->heure_fin}}   </td>
-                                            <td> {{$property->enseignant}}  </td>
-                                            <td> {{$property->module}}  </td>
-                                            <td> {{$property->ufr}}  </td>
-                                            <td> {{$property->filiere}}  </td>
-                                            <td> {{$property->promotion}}  </td>
-                                            <td> {{$property->semestre}}  </td>
-                                            <td> {{$property->lieu}}  </td>
+                                                <form  id="deleteForm" action="{{route('destroy' , $property)}}" method="post">
+                                                    @csrf
+                                                    @method("delete")
+                                                    <input type="hidden" name="telegram_id" value="{{ $property->user->telegram_id }}">
+                                                    <button class="btn btn-danger" onclick="return confirmDelete(event)">SUPPRIMER</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
 
-                                            <td>
-                                                <div class="d-flex gap-2 w-100 justify-content-end">
-                                                    <a href="" class="btn btn-primary">PUBLIER</a>
 
-                                                    <form action="{{route('destroy' , $property)}}" method="post">
-                                                        @csrf
-                                                        @method("delete")
-                                                        <button class="btn btn-danger">REJETER</button>
-                                                    </form>
-                                                </div>
-                                            </td>
-
-                                </tr>
-
-                                @endforeach
-                            </tbody>
-
-                        </table>
                       </li>
                     </ul>
                     <div class="tab-content py-0 px-0">
@@ -252,7 +295,8 @@
                   </div>
                 </div>
               </div>
-            </div>
+
+
 
             <!-- fin de evenement cathégorie et utilisateur -->
 
@@ -270,7 +314,19 @@
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
+    <script>
+        function confirmDelete(event) {
+            event.preventDefault(); // Empêche la soumission du formulaire par défaut
 
+            if (confirm("Êtes-vous sûr de vouloir supprimer cet programme ?")) {
+                // Si l'utilisateur clique sur "OK", soumettez le formulaire
+                document.getElementById('deleteForm').submit();
+            } else {
+                // Sinon, ne faites rien
+                return false;
+            }
+        }
+    </script>
     <!-- plugins:js -->
     <script src="assets_private/vendors/base/vendor.bundle.base.js"></script>
     <!-- endinject -->
@@ -292,5 +348,30 @@
     <!-- End custom js for this page-->
 
     <script src="assets_private/js/jquery.cookie.js" type="text/javascript"></script>
+
+    <script>
+        // Fonction pour afficher/cacher les détails
+        function toggleDetails(id) {
+            var x = document.getElementById("info" + id);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                document.getElementById("showInfo" + id).textContent = "Cacher les détails";
+            } else {
+                x.style.display = "none";
+                document.getElementById("showInfo" + id).textContent = "Afficher les détails";
+            }
+        }
+
+        // Afficher les détails lorsqu'on clique sur le bouton "Afficher les détails
+    </script>
+<script>
+    function confirmAction(message) {
+        return confirm(message);
+    }
+</script>
+
+
   </body>
+
+
 </html>

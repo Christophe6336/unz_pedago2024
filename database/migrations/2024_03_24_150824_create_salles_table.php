@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->integer('capacite');
+            $table->foreignId('batiment_id')->constrained('batiments'); // Définition de la clé étrangère
             $table->timestamps();
         });
     }

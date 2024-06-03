@@ -27,12 +27,17 @@ class PropertyFormRequest extends FormRequest
             'heure_fin'=>['required'],
             'heure_debut'=>['required'],
             'enseignant'=>['required'],
-            'module'=>['required'],
+            //'module'=>['required'],
             'ufr'=>['required'],
             'filiere'=>['required'],
             'promotion'=>['required', 'integer', 'min:1'],
             'semestre'=>['required'],
-            'lieu'=>['required'],
+            'batiment_id'=>['required'],
+            'salle_id'=>['required'],
+            'module_id' => 'required',
+            'user_id' => 'required',
+            'telegram_id' => 'required',
+            'annee_academique_id' => 'required',
 
 
 ]

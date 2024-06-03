@@ -12,4 +12,13 @@ class Semestre extends Model
         'id',
         'intitule',
         ];
+        public function filiere()
+        {
+            return $this->belongsTo(Filiere::class);
+        }
+
+        public function anneeAcademique()
+        {
+            return $this->belongsTo(AnneeAcademique::class);
+        }
 }

@@ -41,11 +41,11 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center ">
+  <header id="header" class="fixed-top d-flex align-items-center " style="background-image: url('{{ asset('assets/banniere_unz.png') }}')">
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="{{ route('home') }}">UNZ-PEDAGO</a></h1>
+        <h1><a href="{{ route('home') }}" class="btn btn-primary">UNZ-PEDAGO</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -76,14 +76,28 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2> <strong>Bienvenue dans la page d'inscription de UNZ-PEDAGO</h2></strong>
+          <h1 style="color: green;"> <strong>Bienvenue dans la page d'inscription de UNZ-PEDAGO</h1></strong>
           <ol>
           </ol>
         </div>
 
       </div>
     </section><!-- End Breadcrumbs -->
+<!-- Logo de votre application -->
+<div class="logo-container">
+    <img src="assets/logo_unz.jpg" alt="Votre logo">
+</div>
+<style>.logo-container {
+    width: 20%; /* Occupe la moitié de la largeur de la page */
+    margin: 0 auto; /* Centre l'image horizontalement */
+    text-align: center; /* Centre l'image horizontalement si la largeur de l'image est inférieure à 50% */
+}
 
+.logo-container img {
+    max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur de son conteneur */
+    height: auto; /* Gardez le rapport hauteur/largeur de l'image */
+}
+</style>
     <section class="inner-page">
         <div class="container">
             <div class="row justify-content-center">
@@ -154,8 +168,13 @@
 
                                 <div class="container">
                                     <div class="member mb-3"> <span>Vous n'avez pas de compte?</span>
-                                        <a class="text-decoration-none" href="{{ route('connexion') }}">Se connecter</a> </div> </div>
-                                       </div> </div> <div class="col-md-6"> <div class="right-side-content">
+                                        <a class="text-decoration-none" href="{{ route('connexion') }}">Se connecter</a>
+                                    </div>
+                                     </div>
+                                       </div>
+                                     </div>
+                                      <div class="col-md-6">
+                                        <div class="right-side-content">
                                 </div>
 
                             </form>

@@ -75,7 +75,7 @@ class UsersController extends Controller
 
         $user->save();
         $request->session()->flash('message', 'Successfully updated user');
-        return redirect()->route('users.index');
+        return redirect()->route('afficheusers');
     }
 
     /**
@@ -91,5 +91,42 @@ class UsersController extends Controller
             $user->delete();
         }
         return redirect()->route('users.index');
+    }
+
+    public function connectTelegram(Request $request)
+    {
+        $telegram_id = $request->input('telegram_id');
+        $user = User::where('telegram_id', $telegram_id)->first();
+
+        if ($user) {
+            // L'utilisateur est déjà enregistré, rien à faire
+            return response()->json(['message' => 'Utilisateur déjà enregistré']);
+        } else {
+            // Enregistrement du nouvel utilisateur
+            $newUser = User::create([
+                'nom' => $request->input('name'),
+                'telegram_id' => $telegram_id
+            ]);
+
+            return response()->json(['message' => 'Utilisateur enregistré avec succès']);
+        }
+    }
+
+    public function connectTelegramClient(Request $request)
+    {
+        $telegram_id = $request->input('telegram_id');
+        $name = $request->input('nom');
+
+        // Envoi de l'ID Telegram de l'utilisateur à votre application
+        $response = Http::post('https://votre-domaine.com/connect-telegram', [
+            'telegram_id' => $telegram_id,
+            'nom' => $nom
+        ]);
+
+        // Gérer la réponse de l'application
+        $responseBody = $response->json();
+
+        // Afficher la réponse
+        return $responseBody['message'];
     }
 }
